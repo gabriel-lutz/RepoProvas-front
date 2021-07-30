@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 export default function Choices(){
     return(
         <>
-        <Title>REPOPROVAS</Title>
         <Wrapper>
             <Link to={"/send"}>
                 <Button>Quero enviar uma prova!</Button>
@@ -17,14 +16,6 @@ export default function Choices(){
         </>
     )
 }
-
-const Title = styled.h1`
-    font-size: 48px;
-    color:#00ADB5;
-    font-family: 'Palette Mosaic', cursive;
-    text-align: center;
-    margin-top: 50px;
-`
 
 const Wrapper = styled.div`
     display: flex;
