@@ -29,7 +29,6 @@ export default function Send(){
     function handleSelect(e){
         setFormData({...formData, courseId: Number(e.target.value)})
         const course = coursesList.filter(c=> Number(c.id) === Number(e.target.value))
-        console.log(course)
         setProfessorsList(course[0].professors)
     }
 
@@ -44,7 +43,6 @@ export default function Send(){
         })
         response.catch("deu ruim")
     }
-    console.log(formData)
     
     return(
         <>
@@ -113,14 +111,14 @@ const Form = styled.form`
     flex-direction:column;
     width:400px;
     color:white;
-    margin: 
+    
 `
 const H1 = styled.h1`
     margin-top: 20px;
     margin-bottom:5px;
 `
 const Input = styled.input`
-    width:225px;
+    width:auto;
     padding:5px 10px;
     background:none;
     color:white;
@@ -128,6 +126,7 @@ const Input = styled.input`
 `
 
 const Select = styled.select`
+    width:auto;
     color:white;
     background:none;
     padding:5px 10px;
