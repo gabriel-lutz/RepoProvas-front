@@ -43,7 +43,7 @@ export default function Send(){
         })
         response.catch("deu ruim")
     }
-    
+    console.log(formData)
     return(
         <>
             <Form onSubmit={sendExam}>
