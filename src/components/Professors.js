@@ -1,19 +1,32 @@
 import styled from "styled-components"
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 export default function Visualize(){
+    const [professorsList, setProfessorsList] = useState()
+    const history = useHistory()
+
     useEffect(()=>{
-        const response = axios.get("http://localhost:4000/test")
+        const response = axios.get(`${process.env.REACT_APP_API_BASE_URL}/exams/professors`)
         response.then(data=>{
-            console.log(data.data)
+            setProfessorsList(data.data)
         })
     },[])
 
     return(
         <>
         <Wrapper>
-            <ProfessorButton>Walter White</ProfessorButton>
+            {professorsList && 
+                professorsList.map(p=> (
+                    <ProfessorButton key={p.id} onClick={()=>history.push(`/visualize/professors/${p.id}`)}>
+                        {p.name} <br></br>
+                        {p.exams.length
+                            ? (p.exams.length === 1 ? "1 Prova": p.exams.length + " Provas") 
+                            : "Nenhuma prova" }            
+                    </ProfessorButton>
+                ))}
+
         </Wrapper>
         
         </>
@@ -22,17 +35,20 @@ export default function Visualize(){
 
 const Wrapper = styled.div`
     display: flex;
+    width:400px;
+    flex-direction: column;
     justify-content:center;
-    margin-top: 100px;
+    margin: 100px auto 0 auto;
     
 `
 
 const ProfessorButton = styled.button`
-    padding: 10px 30px;
-    border-radius: 10px;
+    padding: 5px 10px;
+    text-align:left;
+    margin:5px 0;
     transition: 0.2s;
-    background-color: #393E46;
+    background-color: #222831;
     color:white;
     &:hover{
-        box-shadow: 0 0 5px white;
+        border-left: 2px solid #00ADB5;
 `

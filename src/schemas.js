@@ -1,6 +1,5 @@
 import joi from "joi"
 
-//const pdfPattern = /^(https?:\/\/)?www([\da-z-]+)([a-z]{2,6})\/[\w -]+?pdf$/
 const pdfPattern = /^(https?:\/\/)?www.([\da-z.-]+)\.([a-z.]{2,6})\/[\w .-]+?\.pdf$/
 
 export const formSchema = joi.object({
