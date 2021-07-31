@@ -34,7 +34,9 @@ export default function Send(){
 
     function sendExam(e){
         e.preventDefault()
+        console.log(formData)
         if(formSchema.validate(formData).error){
+            console.log(formSchema.validate(formData).error)
             return alert("Você precisa dar um nome e colocar um link de pdf válido!")
         }
         const response = axios.post(`${process.env.REACT_APP_API_BASE_URL}/exams`, formData)
