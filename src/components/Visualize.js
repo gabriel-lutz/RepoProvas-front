@@ -1,16 +1,7 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
-import axios from "axios"
 
 export default function Visualize(){
-    useEffect(()=>{
-        console.log(process.env.REACT_APP_API_BASE_URL)
-        const result = axios.get(`${process.env.REACT_APP_API_BASE_URL}/test`)
-        result.then(data=>{
-            console.log(data.data)
-        })
-    },[])
     return(
         <>
         <Wrapper>

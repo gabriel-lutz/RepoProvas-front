@@ -1,9 +1,11 @@
+import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Header(){
+    const history = useHistory()
     return(
         <>
-            <Title>REPOPROVAS</Title>
+            <Title onClick={()=>{history.push("/")}}>REPOPROVAS</Title>
         </>
     )
 }

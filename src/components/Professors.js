@@ -19,11 +19,13 @@ export default function Visualize(){
         <Wrapper>
             {professorsList && 
                 professorsList.map(p=> (
-                    <ProfessorButton key={p.id} onClick={()=>history.push(`/visualize/professors/${p.id}`)}>
-                        {p.name} <br></br>
-                        {p.exams.length
-                            ? (p.exams.length === 1 ? "1 Prova": p.exams.length + " Provas") 
-                            : "Nenhuma prova" }            
+                    <ProfessorButton 
+                        key={p.id} 
+                        onClick={()=>history.push(`/visualize/professors/${p.id}`)}>
+                            {p.name} <br></br>
+                            {p.exams.length
+                                ? (p.exams.length === 1 ? "1 Prova": p.exams.length + " Provas") 
+                                : "Nenhuma prova" }            
                     </ProfessorButton>
                 ))}
 
