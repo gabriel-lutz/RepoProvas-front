@@ -15,5 +15,6 @@ const Title = styled.h1`
     color:#00ADB5;
     font-family: 'Palette Mosaic', cursive;
     text-align: center;
-    margin-top: 50px;
+    padding: 25px;
+    background: ;    
 `

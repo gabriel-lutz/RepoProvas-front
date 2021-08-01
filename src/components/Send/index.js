@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import axios from "axios"
-import { formSchema } from "../schemas"
+import { formSchema } from "../../schemas"
 import { useHistory } from "react-router-dom"
 
 export default function Send(){

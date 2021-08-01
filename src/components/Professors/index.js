@@ -15,7 +15,6 @@ export default function Visualize(){
     },[])
 
     return(
-        <>
         <Wrapper>
             {professorsList && 
                 professorsList.map(p=> (
@@ -28,10 +27,7 @@ export default function Visualize(){
                                 : "Nenhuma prova" }            
                     </ProfessorButton>
                 ))}
-
         </Wrapper>
-        
-        </>
     )
 }
 
@@ -49,8 +45,9 @@ const ProfessorButton = styled.button`
     text-align:left;
     margin:5px 0;
     transition: 0.2s;
-    background-color: #222831;
+    background-color: #323841;
     color:white;
+    cursor:pointer;
     &:hover{
         border-left: 2px solid #00ADB5;
 `

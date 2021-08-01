@@ -11,13 +11,11 @@ export default function Professor(){
     useEffect(()=>{
         const response = axios.get(`${process.env.REACT_APP_API_BASE_URL}/exams/professors/${id}`)
         response.then(data=>{
-            console.log(data.data)
             setCategoriesList(data.data)
         })
     },[id])
 
     return(
-        <>
             <Wrapper>
                 {categoriesList && categoriesList.length
                     ? categoriesList.map(c=>(
@@ -26,7 +24,6 @@ export default function Professor(){
                     : "Nenhuma prova cadastrada para esse professor!"
                 }
             </Wrapper>
-        </>
     )
 }
 
@@ -36,6 +33,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content:center;
     margin: 100px auto 100px auto;
+    color:white;
     
     a{
     display:flex;
@@ -47,7 +45,7 @@ const Wrapper = styled.div`
     margin:5px 0;
     transition: 0.2s;
     background-color: #222831;
-    color:white;
+    
     &:hover{
         border-left: 2px solid #00ADB5;
     }
