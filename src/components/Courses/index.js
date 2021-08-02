@@ -10,6 +10,9 @@ export default function Courses(){
         response.then(data=>{
             setPeriodsList(data.data)
         })
+        response.catch(()=>{
+            alert("Parece que algo deu errado, tente novamente mais tarde.")
+        })
     },[])
     
     return(

@@ -4,28 +4,34 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 
 export default function Courses(){
-    const [periodsList, setPeriodsList] = useState()
+    const [periodsList, setPeriodsList] = useState([])
     const {id} = useParams()
     useEffect(()=>{
         const response = axios.get(`${process.env.REACT_APP_API_BASE_URL}/exams/courses/${id}`)
         response.then(data=>{
             setPeriodsList(data.data)
         })
+        response.catch(()=>{
+            alert("Parece que algo deu errado, tente novamente mais tarde.")
+        })
     },[id])
+
+    console.log(periodsList)
     
     return(
         <Wrapper>
-            {periodsList &&
+            {periodsList.length?
                 periodsList.map(p=>(
-                    <>
+                    <div key={p.key}>
                         <H1>{p.name}</H1>
                         {p.exams.map(e=>(
                             <a href={e.pdfLink}>
                                 {e.name} - {e.professor.name}
                             </a>
                         ))}
-                    </>
+                    </div>
                 ))
+                : "Nenhuma prova cadastrada para este curso"
             }
         </Wrapper>
     )
@@ -33,11 +39,12 @@ export default function Courses(){
 
 const Wrapper = styled.div`
     display: flex;
-    width:350px;
+    width:300px;
     justify-content:center;
     flex-direction:column;
     margin: 100px auto 100px auto;
-    
+    color:white;
+
     a{
     display:flex;
     align-items:center;
@@ -48,7 +55,6 @@ const Wrapper = styled.div`
     margin:5px 0;
     transition: 0.2s;
     background-color: #222831;
-    color:white;
     &:hover{
         border-left: 2px solid #00ADB5;
     }

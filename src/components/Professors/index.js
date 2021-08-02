@@ -12,6 +12,9 @@ export default function Visualize(){
         response.then(data=>{
             setProfessorsList(data.data)
         })
+        response.catch(()=>{
+            alert("Parece que algo deu errado, tente novamente mais tarde.")
+        })
     },[])
 
     return(
@@ -45,9 +48,10 @@ const ProfessorButton = styled.button`
     text-align:left;
     margin:5px 0;
     transition: 0.2s;
-    background-color: #323841;
+    background-color: #222831;
     color:white;
     cursor:pointer;
     &:hover{
         border-left: 2px solid #00ADB5;
+        background-color: #323841;
 `

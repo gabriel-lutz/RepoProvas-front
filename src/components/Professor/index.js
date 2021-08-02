@@ -13,6 +13,9 @@ export default function Professor(){
         response.then(data=>{
             setCategoriesList(data.data)
         })
+        response.catch(()=>{
+            alert("Parece que algo deu errado, tente novamente mais tarde.")
+        })
     },[id])
 
     return(
@@ -29,11 +32,10 @@ export default function Professor(){
 
 const Wrapper = styled.div`
     display: flex;
-    width:350px;
+    width:320px;
     flex-direction: column;
     justify-content:center;
     margin: 100px auto 100px auto;
-    color:white;
     
     a{
     display:flex;
@@ -43,6 +45,7 @@ const Wrapper = styled.div`
     width:100%;
     text-align:left;
     margin:5px 0;
+    color:white;
     transition: 0.2s;
     background-color: #222831;
     

@@ -39,9 +39,11 @@ export default function Send(){
         }
         const response = axios.post(`${process.env.REACT_APP_API_BASE_URL}/exams`, formData)
         response.then(()=>{
-            alert("Ok")
+            alert("Prova cadastrada com sucesso!")
         })
-        response.catch("deu ruim")
+        response.catch(()=>{
+            alert("Parece que algo deu errado, tente novamente mais tarde.")
+        })
     }
     
     return(
